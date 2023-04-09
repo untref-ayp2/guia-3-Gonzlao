@@ -4,11 +4,11 @@ package tests
 
 import (
 	"fmt"
-	"guia3/linkedlist"
+	"linkedlist"
 	"testing"
 )
 
-func TestInsert(t *testing.T) {
+func TestInsertL(t *testing.T) {
 	list := linkedlist.NewLinkedList[int]()
 	list.Append(1)
 	list.Append(2)
@@ -28,7 +28,7 @@ func TestInsert(t *testing.T) {
 	}
 }
 
-func TestDelete(t *testing.T) {
+func TestDeleteL(t *testing.T) {
 	list := linkedlist.NewLinkedList[int]()
 	list.Append(0)
 	list.Append(1)
