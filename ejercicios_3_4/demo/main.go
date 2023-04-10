@@ -1,8 +1,8 @@
 package main
 
 import (
+	"ejercicios_3_4/ejercicios"
 	"fmt"
-	ejercicios34 "guia3/ejercicios_3_4"
 	"linkedlist"
 )
 
@@ -19,11 +19,11 @@ func main() {
 	list2.Append(5)
 	list2.Append(7)
 
-	listf := ejercicios34.UnirList(*list1, *list2)
+	listf := ejercicios.UnirList(*list1, *list2)
 
 	fmt.Println(listf.String())
 
-	mix_list := ejercicios34.MixList(*list1, *list2)
+	mix_list := ejercicios.MixList(*list1, *list2)
 
 	fmt.Println(mix_list.String())
 }

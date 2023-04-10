@@ -1,4 +1,4 @@
-package ejercicios34
+package ejercicios
 
 import "linkedlist"
 
