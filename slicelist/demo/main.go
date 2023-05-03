@@ -2,16 +2,18 @@ package main
 
 import (
 	"fmt"
-	"linkedlist"
+	"guia3/slicelist"
 )
 
 func main() {
-	l := linkedlist.NewLinkedList[int]()
+	l := slicelist.NewSliceList[int]()
 	fmt.Println("Agregamos 1, 2 y 3 al final de la lista")
 	l.Append(1)
 	l.Append(2)
 	l.Append(3)
 	fmt.Println(l)
+	fmt.Println("Buscamos el numero 3")
+	fmt.Println("Se encuentra en la posicion: ", l.Search(3))
 	fmt.Println("Agregamos 0 al inicio de la lista")
 	l.Prepend(0)
 	fmt.Println(l)
@@ -47,5 +49,8 @@ func main() {
 
 	fmt.Println(l)
 	fmt.Println("El size es ", l.Size())
+
+	n, _ := l.Get(3)
+	fmt.Println(n)
 
 }

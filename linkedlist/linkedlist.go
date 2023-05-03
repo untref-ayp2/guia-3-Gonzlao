@@ -26,6 +26,7 @@ func newNode[T comparable](value T) *node[T] {
 type LinkedList[T comparable] struct {
 	head *node[T] // puntero al primer nodo
 	tail *node[T] // puntero al último nodo
+	size int
 }
 
 // NewLinkedList crea una nueva lista enlazada, vacía
@@ -34,12 +35,13 @@ type LinkedList[T comparable] struct {
 // y un puntero al último nodo en nil
 // O(1)
 func NewLinkedList[T comparable]() *LinkedList[T] {
-	return &LinkedList[T]{head: nil, tail: nil}
+	return &LinkedList[T]{head: nil, tail: nil, size: 0}
 }
 
 // Append agrega un nuevo nodo, con el valor recibido, al final de la lista
 // O(1)
 func (l *LinkedList[T]) Append(value T) {
+	l.size++
 	newNode := newNode(value)
 	if l.head == nil {
 		l.head = newNode
@@ -54,6 +56,7 @@ func (l *LinkedList[T]) Append(value T) {
 // al inicio de la lista
 // O(1)
 func (l *LinkedList[T]) Prepend(value T) {
+	l.size++
 	newNode := newNode(value)
 	if l.head == nil {
 		l.head = newNode
@@ -69,6 +72,7 @@ func (l *LinkedList[T]) Prepend(value T) {
 // Si la posición es inválida, no hace nada
 // O(n)
 func (l *LinkedList[T]) InsertAt(value T, position int) {
+	l.size++
 	if position < 0 {
 		return
 	}
@@ -95,6 +99,7 @@ func (l *LinkedList[T]) Remove(value T) {
 	if l.head == nil {
 		return // no hay nada que eliminar
 	}
+	l.size--
 	if l.head.value == value {
 		l.head = l.head.next
 		return
@@ -175,11 +180,12 @@ func (l *LinkedList[T]) Size() int {
 	if l.head == nil {
 		return 0
 	}
-	current := l.head
+	/*current := l.head
 	position := 0
 	for current != nil {
 		current = current.next
 		position++
-	}
-	return position
+	}*/
+
+	return l.size
 }
