@@ -24,7 +24,7 @@ func (l *SliceList[T]) Prepend(value T) {
 	l.list = append([]T{value}, l.list...)
 }
 
-// O(n)
+// O(1)
 func (l *SliceList[T]) InsertAt(value T, position int) {
 	if position < 0 {
 		return
@@ -38,12 +38,7 @@ func (l *SliceList[T]) InsertAt(value T, position int) {
 		return
 	}
 
-	for i := l.Size() - 1; i >= position; i-- {
-		if i == (l.Size() - 1) {
-			l.list = append(l.list, l.list[i])
-		}
-		l.list[i+1] = l.list[i]
-	}
+	l.list = append(l.list[:position+1], l.list[position:]...)
 	l.list[position] = value
 }
 
